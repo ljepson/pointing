@@ -7,6 +7,7 @@ basePath: /api
 
 info:
   version: 1.0.0
+  title: Pointing
 
 host: localhost:3000
 
