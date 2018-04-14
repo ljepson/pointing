@@ -21,7 +21,7 @@ paths:
   /hello:
     get:
       x-mojo-name: hello
-      x-mojo-to: 'hello#hello'
+      x-mojo-to: hello#hello
       summary: Hello
       description: Returns a hello
       produces:

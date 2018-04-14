@@ -21,17 +21,6 @@ method startup ($app:) {
 
     $app->renderer->default_format('json');
 
-    # This is temporary and shouldn't be rolled to production. This is needed by the tools-client to be able to POST/PUT/DELETE
-    $app->hook(before_dispatch => sub {
-        my $c = shift;
-
-        # Stop processing if we are in a production environment
-        return if ($app->mode || $ENV{'MOJO_MODE'} || 'production') eq 'production';
-
-        $c->res->headers->header('Access-Control-Allow-Origin' => '*');
-        $c->res->headers->header('Access-Control-Allow-Headers' => 'origin, content-type, accept');
-    });
-
     $app->hook(after_render => sub {
         my ($c, $output) = @_;
 
