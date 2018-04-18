@@ -8,7 +8,10 @@ services:
       - "3000:3000"
     networks:
       - project
+    volumes:
+      - ./lib:/code/lib:ro
+      - ./script:/code/script:ro
+      - ./conf:/code/conf:ro
 
 networks:
   project:
-

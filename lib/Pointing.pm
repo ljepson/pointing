@@ -25,7 +25,7 @@ method startup ($app:) {
         my ($c, $output) = @_;
 
         # Only perform the response encapsulation for paths beginning with /api
-        return unless $c->req->url->path->parts->[0] eq 'api';
+        return unless $c->req->url->path->to_string ne '/' && $c->req->url->path->parts->[0] eq 'api';
 
         my $json = eval { from_json $$output };
 
